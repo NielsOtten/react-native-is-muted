@@ -11,6 +11,7 @@
 		B861E77923ACD4C400534ACD /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B861E77823ACD4C400534ACD /* AudioToolbox.framework */; };
 		B861E77B23ACD4D000534ACD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B861E77A23ACD4D000534ACD /* Foundation.framework */; };
 		B861E77D23ACD5A900534ACD /* MuteChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = B861E77C23ACD5A900534ACD /* MuteChecker.m */; };
+		B861E7F723ACE60800534ACD /* MuteChecker.caf in Resources */ = {isa = PBXBuildFile; fileRef = B861E77F23ACD63F00534ACD /* MuteChecker.caf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -89,6 +90,7 @@
 				58B511D71A9E6C8500147676 /* Sources */,
 				58B511D81A9E6C8500147676 /* Frameworks */,
 				58B511D91A9E6C8500147676 /* CopyFiles */,
+				B861E7F623ACE5F200534ACD /* Resources */,
 			);
 			buildRules = (
 			);
@@ -130,6 +132,17 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B861E7F623ACE5F200534ACD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B861E7F723ACE60800534ACD /* MuteChecker.caf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		58B511D71A9E6C8500147676 /* Sources */ = {

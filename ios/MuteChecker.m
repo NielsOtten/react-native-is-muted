@@ -45,8 +45,10 @@ void MuteCheckCompletionProc(SystemSoundID ssID, void* clientData){
 -(instancetype)initWithCompletionBlk:(MuteCheckCompletionHandler)completionBlk{
     self = [self init];
     if (self) {
-        NSURL* url = [[NSBundle mainBundle] URLForResource:@"MuteChecker" withExtension:@"caf"];
+        NSString *soundFilePath = [NSString stringWithFormat:@"%@/MuteChecker.caf",[[NSBundle mainBundle] resourcePath]];
+        NSURL* url = [NSURL fileURLWithPath:soundFilePath];
         if (AudioServicesCreateSystemSoundID((__bridge CFURLRef)url, &_soundId) == kAudioServicesNoError){
+            NSLog(@"Het werkt 3");
             AudioServicesAddSystemSoundCompletion(self.soundId, CFRunLoopGetMain(), kCFRunLoopDefaultMode, MuteCheckCompletionProc,(__bridge void *)(self));
             UInt32 yes = 1;
             AudioServicesSetProperty(kAudioServicesPropertyIsUISound, sizeof(_soundId),&_soundId,sizeof(yes), &yes);

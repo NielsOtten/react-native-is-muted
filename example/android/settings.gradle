@@ -1,5 +1,5 @@
 rootProject.name = 'example'
-include ':react-native-test-example'
-project(':react-native-test-example').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-test-example/android')
+include ':react-native-is-muted'
+project(':react-native-is-muted').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-is-muted/android')
 
 include ':app'
