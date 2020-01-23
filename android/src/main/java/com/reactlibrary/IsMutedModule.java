@@ -1,17 +1,19 @@
 package com.reactlibrary;
 
+import android.content.Context;
+import android.media.AudioManager;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
-import com.facebook.react.bridge.Callback;
+import com.facebook.react.bridge.Promise;
 
 public class IsMutedModule extends ReactContextBaseJavaModule {
 
-    private final ReactApplicationContext reactContext;
+    private final ReactApplicationContext context;
 
-    public IsMutedModule(ReactApplicationContext reactContext) {
-        super(reactContext);
-        this.reactContext = reactContext;
+    public IsMutedModule(ReactApplicationContext context) {
+        super(context);
+        this.context = context;
     }
 
     @Override
@@ -20,8 +22,15 @@ public class IsMutedModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void sampleMethod(String stringArgument, int numberArgument, Callback callback) {
-        // TODO: Implement some actually useful functionality
-        callback.invoke("Received numberArgument: " + numberArgument + " stringArgument: " + stringArgument);
+    public void isMuted(Promise promise) {
+        try {
+            AudioManager audioManager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
+            if (audioManager.getRingerMode() == AudioManager.RINGER_MODE_NORMAL)
+                promise.resolve(false);
+            else
+                promise.resolve(true);
+        } catch (Exception exception) {
+            promise.reject(exception);
+        }
     }
 }
