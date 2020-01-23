@@ -1,26 +1,20 @@
 {
   "name": "react-native-is-muted",
-  "title": "React Native Is Muted",
+  "title": "React Native is muted",
   "version": "0.0.1",
-  "description": "TODO",
+  "description": "Check if mobile is muted",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/github_account/react-native-is-muted.git",
     "baseUrl": "https://github.com/github_account/react-native-is-muted"
   },
-  "keywords": [
-    "react-native"
-  ],
+  "keywords": [ "react-native", "muted", "ios", "android" ],
   "author": {
-    "name": "Niels",
+    "name": "Niels Otten",
     "email": "tnnielstn@gmail.com"
   },
   "license": "MIT",
-  "licenseFilename": "LICENSE",
   "readmeFilename": "README.md",
   "peerDependencies": {
     "react": "^16.8.1",
