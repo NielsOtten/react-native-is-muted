@@ -1,6 +1,5 @@
 #import "IsMuted.h"
 #import "MuteChecker.h"
-
 @interface IsMuted ()
 
 @property (nonatomic, strong) MuteChecker *muteChecker;
@@ -11,16 +10,23 @@
 
 RCT_EXPORT_MODULE()
 
-RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnull NSNumber *)numberArgument callback:(RCTResponseSenderBlock)callback)
+RCT_REMAP_METHOD(isMuted,
+                 resolver:(RCTPromiseResolveBlock)resolve
+                 rejecter:(RCTPromiseRejectBlock)reject)
 {
-    NSLog(@"HET WERKT 2");
-    self.muteChecker = [[MuteChecker alloc] initWithCompletionBlk:^(NSTimeInterval lapse, BOOL muted) {
-        NSLog(@"lapsed: %f", lapse);
-        NSLog(@"muted: %d", muted);
-        callback(@[[NSString stringWithFormat: @"numberArgument: %@ stringArgument: %@", numberArgument, stringArgument]]);
+    self.muteChecker = [[MuteChecker alloc] initWithCompletionBlk:^(BOOL muted) {
+        resolve(muted ? @TRUE : @FALSE);
     }];
-    
-    [_muteChecker check];
+
+    @try {
+        [_muteChecker check];
+    }
+    @catch (NSException *e) {
+        reject(@"isMuted", @"Error occured when checking is muted.", [NSError errorWithDomain:e.name code:0 userInfo:@{
+        NSUnderlyingErrorKey: e,
+        NSDebugDescriptionErrorKey: e.userInfo ?: @{ },
+        NSLocalizedFailureReasonErrorKey: (e.reason ?: @"???") }]);
+    }
 }
 
 @end

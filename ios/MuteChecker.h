@@ -1,7 +1,7 @@
 #import <Foundation/Foundation.h>
 #import <AudioToolbox/AudioToolbox.h>
 
-typedef void (^MuteCheckCompletionHandler)(NSTimeInterval lapse, BOOL muted);
+typedef void (^MuteCheckCompletionHandler)(BOOL muted);
 
 @interface MuteChecker : NSObject
 

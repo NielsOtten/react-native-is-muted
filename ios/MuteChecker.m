@@ -26,7 +26,7 @@ void MuteCheckCompletionProc(SystemSoundID ssID, void* clientData){
     NSDate *now = [NSDate date];
     NSTimeInterval t = [now timeIntervalSinceDate:self.startTime];
     BOOL muted = (t > 0.1)? NO : YES;
-    self.completionBlk(t, muted);
+    self.completionBlk(muted);
 }
 
 -(void)check{
@@ -48,7 +48,6 @@ void MuteCheckCompletionProc(SystemSoundID ssID, void* clientData){
         NSString *soundFilePath = [NSString stringWithFormat:@"%@/MuteChecker.caf",[[NSBundle mainBundle] resourcePath]];
         NSURL* url = [NSURL fileURLWithPath:soundFilePath];
         if (AudioServicesCreateSystemSoundID((__bridge CFURLRef)url, &_soundId) == kAudioServicesNoError){
-            NSLog(@"Het werkt 3");
             AudioServicesAddSystemSoundCompletion(self.soundId, CFRunLoopGetMain(), kCFRunLoopDefaultMode, MuteCheckCompletionProc,(__bridge void *)(self));
             UInt32 yes = 1;
             AudioServicesSetProperty(kAudioServicesPropertyIsUISound, sizeof(_soundId),&_soundId,sizeof(yes), &yes);

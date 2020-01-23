@@ -9,29 +9,42 @@
  */
 
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View } from 'react-native';
+import { Platform, StyleSheet, Text, View, Button } from 'react-native';
 import IsMuted from 'react-native-is-muted';
 
-export default class App extends Component<{}> {
+export default class App extends Component {
   state = {
-    status: 'starting',
-    message: '--'
+    muted: undefined
   };
-  componentDidMount() {
-    IsMuted.sampleMethod('Testing', 123, (message) => {
-      this.setState({
-        status: 'native callback received',
-        message
+
+  onPressListener = () => {
+    console.log('Checking if muted');
+    IsMuted()
+      .then((muted) => {
+        console.log('muted:', muted);
+        this.setState({ muted });
+      })
+      .catch((error) => {
+        console.error(error);
       });
-    });
-  }
+  };
+
   render() {
+    let mutedText;
+
+    if (typeof this.state.muted === 'undefined') {
+      mutedText = 'undefined';
+    } else if (this.state.muted == true) {
+      mutedText = 'muted';
+    } else {
+      mutedText = 'not muted';
+    }
+
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>☆IsMuted example☆</Text>
-        <Text style={styles.instructions}>STATUS: {this.state.status}</Text>
-        <Text style={styles.welcome}>☆NATIVE CALLBACK MESSAGE☆</Text>
-        <Text style={styles.instructions}>{this.state.message}</Text>
+        <Text style={styles.welcome}>IsMuted example☆</Text>
+        <Text style={styles.instructions}>Muted: {mutedText}</Text>
+        <Button onPress={this.onPressListener} title="Check muted" />
       </View>
     );
   }
@@ -42,16 +55,16 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#F5FCFF'
   },
   welcome: {
     fontSize: 20,
     textAlign: 'center',
-    margin: 10,
+    margin: 10
   },
   instructions: {
     textAlign: 'center',
     color: '#333333',
-    marginBottom: 5,
-  },
+    marginBottom: 5
+  }
 });

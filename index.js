@@ -2,4 +2,4 @@ import { NativeModules } from 'react-native';
 
 const { IsMuted } = NativeModules;
 
-export default IsMuted;
+export default () => IsMuted.isMuted();
