@@ -6,8 +6,8 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/github_account/react-native-is-muted.git",
-    "baseUrl": "https://github.com/github_account/react-native-is-muted"
+    "url": "git+https://github.com/nylsoo/react-native-is-muted.git",
+    "baseUrl": "https://github.com/nylsoo/react-native-is-muted"
   },
   "keywords": [ "react-native", "muted", "ios", "android" ],
   "author": {
