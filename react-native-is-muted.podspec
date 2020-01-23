@@ -9,12 +9,12 @@ Pod::Spec.new do |s|
   s.description  = <<-DESC
                   react-native-is-muted
                    DESC
-  s.homepage     = "https://github.com/github_account/react-native-is-muted"
+  s.homepage     = "https://github.com/nylsoo/react-native-is-muted"
   s.license      = "MIT"
   # s.license    = { :type => "MIT", :file => "FILE_LICENSE" }
-  s.authors      = { "Niels" => "tnnielstn@gmail.com" }
-  s.platforms    = { :ios => "9.0" }
-  s.source       = { :git => "https://github.com/github_account/react-native-is-muted.git", :tag => "#{s.version}" }
+  s.authors      = { "Niels Otten" => "tnnielstn@gmail.com" }
+  s.platforms    = { :ios => "13.0" }
+  s.source       = { :git => "https://github.com/nylsoo/react-native-is-muted.git", :tag => "#{s.version}" }
 
   s.source_files = "ios/**/*.{h,m,swift}"
   s.requires_arc = true
