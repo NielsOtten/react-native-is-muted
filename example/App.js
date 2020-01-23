@@ -9,7 +9,7 @@
  */
 
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button, Alert } from 'react-native';
 import IsMuted from 'react-native-is-muted';
 
 export default class App extends Component {
@@ -21,6 +21,7 @@ export default class App extends Component {
     IsMuted()
       .then((muted) => {
         this.setState({ muted });
+        Alert.alert(`Muted:  ${muted ? 'true' : false}`);
       })
       .catch((error) => {
         console.error(error);
