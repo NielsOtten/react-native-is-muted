@@ -9,7 +9,7 @@
  */
 
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
 import IsMuted from 'react-native-is-muted';
 
 export default class App extends Component {
@@ -18,10 +18,8 @@ export default class App extends Component {
   };
 
   onPressListener = () => {
-    console.log('Checking if muted');
     IsMuted()
       .then((muted) => {
-        console.log('muted:', muted);
         this.setState({ muted });
       })
       .catch((error) => {
@@ -42,7 +40,7 @@ export default class App extends Component {
 
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>IsMuted example☆</Text>
+        <Text style={styles.welcome}>IsMuted example</Text>
         <Text style={styles.instructions}>Muted: {mutedText}</Text>
         <Button onPress={this.onPressListener} title="Check muted" />
       </View>
