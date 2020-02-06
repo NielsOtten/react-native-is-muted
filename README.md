@@ -9,32 +9,66 @@ Check if a device is muted.
 
 ## Installation
 
-1. Install the library from ``npm``
-    ```sh
-    npm install react-native-is-muted
-    ```
+1. Install the library from `npm`
+   ```sh
+   npm install react-native-is-muted
+   ```
 2. Link native code
-    React native 0.60+ (IOS only)
-    ```sh
-    cd ios && pod install # for iOS
-    ```
+   React native 0.60+ (IOS only)
 
-    pre 0.60
-    ```sh
-    react-native link react-native-is-muted
-    ```
+   ```sh
+   cd ios && pod install # for iOS
+   ```
+
+   pre 0.60
+
+   ```sh
+   react-native link react-native-is-muted
+   ```
+
 3. (IOS only) Add MuteChecker.caf to buildpase "Copy Bundle Resources"
    1. Open your project in XCode
    2. Click on project name > Target > Build Phases > Copy Bundle Resources
    3. Click on the + icon
    4. Click on Add another...
-<img src="https://github.com/nylsoo/react-native-is-muted/blob/master/Step4.png?raw=true" alt="Red circle around 'Add another...'" height="300">
+      <img src="https://github.com/nylsoo/react-native-is-muted/blob/master/Step4.png?raw=true" alt="Red circle around 'Add another...'" height="300">
    5. Add MuteChecker.caf, located in nodemodules/react-native-is-muted/ios/
-<img src="https://github.com/nylsoo/react-native-is-muted/blob/master/Step5.png?raw=true" alt="Location of mutechecker.caf">
+      <img src="https://github.com/nylsoo/react-native-is-muted/blob/master/Step5.png?raw=true" alt="Location of mutechecker.caf">
 4. Done
 
 ## Usage
+
+**Promise**
+
+```js
+import IsMuted from 'react-native-is-muted';
+
+IsMuted()
+  .then(muted => {
+    console.log('Muted:', muted);
+  })
+  .catch(error => {
+    console.error(error);
+  });
+```
+
+**Async await**
+
+```js
+import IsMuted from 'react-native-is-muted';
+
+try {
+  const muted = await IsMuted();
+  console.log('Muted: ', muted);
+} catch (error) {
+  console.error(error);
+}
+```
+
+## How to run Example
+
 Coming soon
 
 ## Trouble shooting
+
 Coming soon
