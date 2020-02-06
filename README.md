@@ -64,7 +64,3 @@ try {
   console.error(error);
 }
 ```
-
-## Trouble shooting
-
-Coming soon
