@@ -1,4 +1,4 @@
-# (WIP) react-native-is-muted
+# react-native-is-muted
 
 [![npm version](https://img.shields.io/npm/v/react-native-is-muted.svg)](https://www.npmjs.com/package/react-native-is-muted)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
