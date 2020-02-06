@@ -31,9 +31,9 @@ Check if a device is muted.
    2. Click on project name > Target > Build Phases > Copy Bundle Resources
    3. Click on the + icon
    4. Click on Add another...
-      <img src="https://github.com/nylsoo/react-native-is-muted/blob/master/Step4.png?raw=true" alt="Red circle around 'Add another...'" height="300">
+      <p><img src="https://github.com/nylsoo/react-native-is-muted/blob/master/Step4.png?raw=true" alt="Red circle around 'Add another...'" height="300"></p>
    5. Add MuteChecker.caf, located in nodemodules/react-native-is-muted/ios/
-      <img src="https://github.com/nylsoo/react-native-is-muted/blob/master/Step5.png?raw=true" alt="Location of mutechecker.caf">
+      <p><img src="https://github.com/nylsoo/react-native-is-muted/blob/master/Step5.png?raw=true" alt="Location of mutechecker.caf"></p>
 4. Done
 
 ## Usage
