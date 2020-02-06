@@ -65,10 +65,6 @@ try {
 }
 ```
 
-## How to run Example
-
-Coming soon
-
 ## Trouble shooting
 
 Coming soon
