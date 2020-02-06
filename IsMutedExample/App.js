@@ -17,17 +17,14 @@ export default class App extends Component {
     muted: undefined,
   };
 
-  onPressListener = () => {
-    IsMuted()
-      .then(muted => {
-        console.log(muted);
-        console.log('test');
-        this.setState({muted});
-        Alert.alert(`Muted:  ${muted ? 'true' : false}`);
-      })
-      .catch(error => {
-        console.error(error);
-      });
+  onPressListener = async () => {
+    try {
+      const muted = await IsMuted();
+      this.setState({muted});
+      Alert.alert(`Muted:  ${muted ? 'true' : false}`);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   render() {
@@ -35,7 +32,7 @@ export default class App extends Component {
 
     if (typeof this.state.muted === 'undefined') {
       mutedText = 'undefined';
-    } else if (this.state.muted === 1) {
+    } else if (this.state.muted === true) {
       mutedText = 'muted';
     } else {
       mutedText = 'not muted';
