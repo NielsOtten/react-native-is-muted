@@ -1,4 +1,4 @@
-package com.reactlibrary;
+package com.nielsotten.rnismuted;
 
 import android.content.Context;
 import android.media.AudioManager;
