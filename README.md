@@ -3,7 +3,7 @@
 [![npm version](https://img.shields.io/npm/v/react-native-is-muted.svg)](https://www.npmjs.com/package/react-native-is-muted)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
-<p align="center"><img src="https://github.com/NielsOtten/react-native-is-muted/blob/master/isMutedExample.ios.gif?raw=true" alt="Showcase iOS" width="234" height="433">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://github.com/NielsOtten/react-native-is-muted/blob/master/isMutedExample.android.gif?raw=true" alt="Showcase Android" width="234" height="433"></p>
+<p align="center"><img src="https://github.com/NielsOtten/react-native-is-muted/blob/main/isMutedExample.ios.gif?raw=true" alt="Showcase iOS" width="234" height="433">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://github.com/NielsOtten/react-native-is-muted/blob/main/isMutedExample.android.gif?raw=true" alt="Showcase Android" width="234" height="433"></p>
 
 Detect the silent switch state in iOS.
 
@@ -31,9 +31,9 @@ Detect the silent switch state in iOS.
    2. Click on project name > Target > Build Phases > Copy Bundle Resources
    3. Click on the + icon
    4. Click on Add another...
-      <p><img src="https://github.com/NielsOtten/react-native-is-muted/blob/master/Step4.png?raw=true" alt="Red circle around 'Add another...'" height="300"></p>
+      <p><img src="https://github.com/NielsOtten/react-native-is-muted/blob/main/Step4.png?raw=true" alt="Red circle around 'Add another...'" height="300"></p>
    5. Add MuteChecker.caf, located in nodemodules/react-native-is-muted/ios/
-      <p><img src="https://github.com/NielsOtten/react-native-is-muted/blob/master/Step5.png?raw=true" alt="Location of mutechecker.caf"></p>
+      <p><img src="https://github.com/NielsOtten/react-native-is-muted/blob/main/Step5.png?raw=true" alt="Location of mutechecker.caf"></p>
 4. Done
 
 ## Usage
