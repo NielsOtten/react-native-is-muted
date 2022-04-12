@@ -5,7 +5,7 @@
 
 <p align="center"><img src="https://github.com/nylsoo/react-native-is-muted/blob/master/isMutedExample.ios.gif?raw=true" alt="Showcase iOS" width="234" height="433">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://github.com/nylsoo/react-native-is-muted/blob/master/isMutedExample.android.gif?raw=true" alt="Showcase Android" width="234" height="433"></p>
 
-Check if a device is muted.
+Detect the silent switch state in iOS.
 
 ## Installation
 
