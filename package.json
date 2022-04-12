@@ -1,6 +1,6 @@
 {
   "name": "react-native-is-muted",
-  "version": "0.1.0",
+  "version": "0.0.6",
   "description": "Check if a device is muted",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
