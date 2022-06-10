@@ -1,7 +1,7 @@
 {
   "name": "react-native-is-muted-example",
   "description": "Example app for react-native-is-muted",
-  "version": "1.0.0",
+  "version": "0.0.8",
   "private": true,
   "scripts": {
     "android": "react-native run-android",
