@@ -7,11 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B3E7B58A1CC2AC0600A0062D /* IsMuted.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* IsMuted.m */; };
-		B861E77923ACD4C400534ACD /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B861E77823ACD4C400534ACD /* AudioToolbox.framework */; };
-		B861E77B23ACD4D000534ACD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B861E77A23ACD4D000534ACD /* Foundation.framework */; };
-		B861E77D23ACD5A900534ACD /* MuteChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = B861E77C23ACD5A900534ACD /* MuteChecker.m */; };
-		B861E7F723ACE60800534ACD /* MuteChecker.caf in Resources */ = {isa = PBXBuildFile; fileRef = B861E77F23ACD63F00534ACD /* MuteChecker.caf */; };
+
+		5E555C0D2413F4C50049A1A2 /* IsMuted.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* IsMuted.m */; };
+
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,13 +26,10 @@
 
 /* Begin PBXFileReference section */
 		134814201AA4EA6300B7C361 /* libIsMuted.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libIsMuted.a; sourceTree = BUILT_PRODUCTS_DIR; };
+
 		B3E7B5881CC2AC0600A0062D /* IsMuted.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IsMuted.h; sourceTree = "<group>"; };
 		B3E7B5891CC2AC0600A0062D /* IsMuted.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IsMuted.m; sourceTree = "<group>"; };
-		B861E77823ACD4C400534ACD /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AudioToolbox.framework; sourceTree = DEVELOPER_DIR; };
-		B861E77A23ACD4D000534ACD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		B861E77C23ACD5A900534ACD /* MuteChecker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MuteChecker.m; sourceTree = "<group>"; };
-		B861E77E23ACD5DB00534ACD /* MuteChecker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MuteChecker.h; sourceTree = "<group>"; };
-		B861E77F23ACD63F00534ACD /* MuteChecker.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MuteChecker.caf; sourceTree = "<group>"; };
+
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,8 +37,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B861E77B23ACD4D000534ACD /* Foundation.framework in Frameworks */,
-				B861E77923ACD4C400534ACD /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,23 +54,12 @@
 		58B511D21A9E6C8500147676 = {
 			isa = PBXGroup;
 			children = (
-				B861E77F23ACD63F00534ACD /* MuteChecker.caf */,
-				B861E77E23ACD5DB00534ACD /* MuteChecker.h */,
-				B861E77C23ACD5A900534ACD /* MuteChecker.m */,
+
 				B3E7B5881CC2AC0600A0062D /* IsMuted.h */,
 				B3E7B5891CC2AC0600A0062D /* IsMuted.m */,
+
 				134814211AA4EA7D00B7C361 /* Products */,
-				B861E77723ACD4C400534ACD /* Frameworks */,
 			);
-			sourceTree = "<group>";
-		};
-		B861E77723ACD4C400534ACD /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				B861E77A23ACD4D000534ACD /* Foundation.framework */,
-				B861E77823ACD4C400534ACD /* AudioToolbox.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -90,7 +72,6 @@
 				58B511D71A9E6C8500147676 /* Sources */,
 				58B511D81A9E6C8500147676 /* Frameworks */,
 				58B511D91A9E6C8500147676 /* CopyFiles */,
-				B861E7F623ACE5F200534ACD /* Resources */,
 			);
 			buildRules = (
 			);
@@ -133,24 +114,14 @@
 		};
 /* End PBXProject section */
 
-/* Begin PBXResourcesBuildPhase section */
-		B861E7F623ACE5F200534ACD /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B861E7F723ACE60800534ACD /* MuteChecker.caf in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		58B511D71A9E6C8500147676 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B861E77D23ACD5A900534ACD /* MuteChecker.m in Sources */,
+
 				B3E7B58A1CC2AC0600A0062D /* IsMuted.m in Sources */,
+
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,7 +172,6 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LIBRARY_SEARCH_PATHS = "";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -245,7 +215,6 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LIBRARY_SEARCH_PATHS = "";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -265,6 +234,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = IsMuted;
 				SKIP_INSTALL = YES;
+
 			};
 			name = Debug;
 		};
@@ -281,6 +251,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = IsMuted;
 				SKIP_INSTALL = YES;
+
 			};
 			name = Release;
 		};
