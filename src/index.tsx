@@ -20,7 +20,7 @@ const IsMutedNativeModule = NativeModules.IsMuted
 export function IsMuted(): Promise<Boolean> {
   return new Promise((resolve, reject) => {
     IsMutedNativeModule.isMuted()
-      .then((muted: boolean) => resolve(muted == true))
+      .then((muted: boolean) => {console.log(muted); return resolve(muted)})
       .catch((error: any) => reject(error));
   });
 }

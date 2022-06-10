@@ -9,7 +9,7 @@ export default function App() {
     try {
       const isMuted = await IsMuted();
       setMuted(isMuted);
-      Alert.alert(`Muted:  ${muted ? 'true' : false}`);
+      Alert.alert(`Muted:  ${isMuted ? 'true' : false}`);
     } catch (error) {
       console.error(error);
     }
