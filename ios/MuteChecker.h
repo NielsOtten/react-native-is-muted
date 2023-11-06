@@ -7,10 +7,10 @@ typedef void (^MuteCheckCompletionHandler)(BOOL muted);
 
 // this class must use with a MuteChecker.caf (a 0.2 sec mute sound) in Bundle
 
-@property (nonatomic,assign) SystemSoundID soundId;
-@property (strong) MuteCheckCompletionHandler completionBlk;
+@property(nonatomic, assign) SystemSoundID soundId;
+@property(strong) MuteCheckCompletionHandler completionBlk;
 
--(instancetype)initWithCompletionBlk:(MuteCheckCompletionHandler)completionBlk;
--(void)check;
+- (instancetype)initWithCompletionBlk:(MuteCheckCompletionHandler)completionBlk;
+- (void)check;
 
 @end

@@ -1,5 +1,6 @@
 #import "IsMuted.h"
 #import "MuteChecker.h"
+
 @interface IsMuted ()
 
 @property (nonatomic, strong) MuteChecker *muteChecker;
@@ -7,17 +8,14 @@
 @end
 
 @implementation IsMuted
-
 RCT_EXPORT_MODULE()
 
-// Example method
-// See // https://reactnative.dev/docs/native-modules-ios
-RCT_REMAP_METHOD(isMuted,
-                 withResolver:(RCTPromiseResolveBlock)resolve
-                 withRejecter:(RCTPromiseRejectBlock)reject)
+RCT_EXPORT_METHOD(isMuted:(RCTPromiseResolveBlock)resolve
+                  reject:(RCTPromiseRejectBlock)reject)
 {
-  #if TARGET_IPHONE_SIMULATOR
+    #if TARGET_IPHONE_SIMULATOR
         reject(@"isMuted", @"The simulator currently doesn't support react-native-is-muted.", [NSError errorWithDomain:@"SimulatorNotSupported" code:0 userInfo:@{}]);
+        return;
     #endif
 
     self.muteChecker = [[MuteChecker alloc] initWithCompletionBlk:^(BOOL muted) {
@@ -34,5 +32,14 @@ RCT_REMAP_METHOD(isMuted,
         NSLocalizedFailureReasonErrorKey: (e.reason ?: @"???") }]);
     }
 }
+
+// Don't compile this code when we build for the old architecture.
+#ifdef RCT_NEW_ARCH_ENABLED
+- (std::shared_ptr<facebook::react::TurboModule>)getTurboModule:
+    (const facebook::react::ObjCTurboModule::InitParams &)params
+{
+    return std::make_shared<facebook::react::NativeIsMutedSpecJSI>(params);
+}
+#endif
 
 @end

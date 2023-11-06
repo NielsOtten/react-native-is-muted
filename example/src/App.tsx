@@ -1,25 +1,23 @@
-import React, {useState} from 'react';
-import {StyleSheet, Text, View, Button, Alert} from 'react-native';
-import {IsMuted} from 'react-native-is-muted';
+import React, { useState } from 'react';
+import { StyleSheet, Text, View, Button, Alert } from 'react-native';
+import { isMuted } from 'react-native-is-muted';
 
 export default function App() {
   const [muted, setMuted] = useState<Boolean>();
 
   async function onPressListener() {
     try {
-      const isMuted = await IsMuted();
-      setMuted(isMuted);
-      Alert.alert(`Muted:  ${isMuted ? 'true' : false}`);
+      const isDeviceMuted = await isMuted();
+      setMuted(isDeviceMuted);
+      Alert.alert(`Muted:  ${isDeviceMuted ? 'true' : false}`);
     } catch (error) {
       console.error(error);
     }
   }
 
-  let mutedText;
+  let mutedText = 'undefined';
 
-  if (typeof muted === 'undefined') {
-    mutedText = 'undefined';
-  } else if (muted === true) {
+  if (muted === true) {
     mutedText = 'muted';
   } else {
     mutedText = 'not muted';
