@@ -24,10 +24,6 @@ const IsMuted = IsMutedModule
       }
     );
 
-export function multiply(a: number, b: number): Promise<number> {
-  return IsMuted.multiply(a, b);
-}
-
 export function isMuted(): Promise<Boolean> {
   return new Promise((resolve, reject) => {
     IsMuted.isMuted()
