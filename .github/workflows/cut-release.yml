@@ -3,10 +3,13 @@ name: Cut release
 on:
   workflow_dispatch:
     inputs:
-      version:
-        description: "New version (X.Y.0). Use 'Cut patch' for patches."
+      bump:
+        description: "Bump type. Use 'Cut patch' for patches."
         required: true
-        type: string
+        type: choice
+        options:
+          - minor
+          - major
 
 permissions:
   contents: write
@@ -17,38 +20,15 @@ jobs:
     runs-on: ubuntu-latest
     environment: npm
     steps:
-      - name: Validate version
-        run: |
-          if [[ ! "${{ inputs.version }}" =~ ^[0-9]+\.[0-9]+\.0$ ]]; then
-            echo "Version must be X.Y.0 (got '${{ inputs.version }}'). Use 'Cut patch' for patches."
-            exit 1
-          fi
-
-      - name: Compute branch name
-        id: branch
-        run: |
-          MINOR="${{ inputs.version }}"
-          echo "name=release/${MINOR%.0}" >> $GITHUB_OUTPUT
-
       - uses: actions/checkout@v4
         with:
           ref: main
           fetch-depth: 0
 
-      - name: Ensure branch does not exist
-        run: |
-          if git ls-remote --exit-code --heads origin "${{ steps.branch.outputs.name }}"; then
-            echo "Branch ${{ steps.branch.outputs.name }} already exists."
-            exit 1
-          fi
-
       - name: Configure git
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-      - name: Create release branch
-        run: git checkout -b "${{ steps.branch.outputs.name }}"
 
       - uses: actions/setup-node@v4
         with:
@@ -65,18 +45,37 @@ jobs:
       - run: npm test
 
       - name: Bump version
-        run: npm version ${{ inputs.version }} --no-git-tag-version
+        id: bump
+        run: |
+          NEW=$(npm version ${{ inputs.bump }} --no-git-tag-version)
+          echo "version=${NEW#v}" >> $GITHUB_OUTPUT
+
+      - name: Compute branch name
+        id: branch
+        run: |
+          MINOR="${{ steps.bump.outputs.version }}"
+          echo "name=release/${MINOR%.0}" >> $GITHUB_OUTPUT
+
+      - name: Ensure branch does not exist
+        run: |
+          if git ls-remote --exit-code --heads origin "${{ steps.branch.outputs.name }}"; then
+            echo "Branch ${{ steps.branch.outputs.name }} already exists."
+            exit 1
+          fi
+
+      - name: Create release branch
+        run: git checkout -b "${{ steps.branch.outputs.name }}"
 
       - name: Commit and tag
         run: |
           git add package.json package-lock.json
-          git commit -m "chore: release v${{ inputs.version }}"
-          git tag -a "v${{ inputs.version }}" -m "v${{ inputs.version }}"
+          git commit -m "chore: release v${{ steps.bump.outputs.version }}"
+          git tag -a "v${{ steps.bump.outputs.version }}" -m "v${{ steps.bump.outputs.version }}"
 
       - name: Push branch and tag
         run: |
           git push origin "${{ steps.branch.outputs.name }}"
-          git push origin "v${{ inputs.version }}"
+          git push origin "v${{ steps.bump.outputs.version }}"
 
       - name: Publish to npm
         run: npm publish --provenance
@@ -84,7 +83,7 @@ jobs:
       - name: Create GitHub release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: v${{ inputs.version }}
-          name: v${{ inputs.version }}
+          tag_name: v${{ steps.bump.outputs.version }}
+          name: v${{ steps.bump.outputs.version }}
           target_commitish: ${{ steps.branch.outputs.name }}
           generate_release_notes: true
