@@ -1,0 +1,10 @@
+{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "strict": true,
+    "paths": {
+      "react-native-is-muted": ["../src/index"],
+      "react-native-is-muted/*": ["../src/*"]
+    }
+  }
+}
