@@ -3,14 +3,16 @@ plugins {
   id 'expo-module-gradle-plugin'
 }
 
+def packageJson = new groovy.json.JsonSlurper().parseText(file('../package.json').text)
+
 group = 'expo.modules.ismuted'
-version = '0.1.0'
+version = packageJson.version
 
 android {
   namespace "expo.modules.ismuted"
   defaultConfig {
     versionCode 1
-    versionName "0.1.0"
+    versionName packageJson.version
   }
   lintOptions {
     abortOnError false
