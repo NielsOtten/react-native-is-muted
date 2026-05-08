@@ -1,6 +1,35 @@
-IsMutedExample/
-isMutedExample.ios.gif
-isMutedExample.android.gif
-Step4.png
-Step5.png
-scripts/
+# Example app
+example/
+
+# Dependencies
+node_modules/
+
+# Build artifacts
+ios/Pods/
+ios/build/
+android/build/
+android/.gradle/
+.expo/
+
+# Source maps
+build/**/*.map
+
+# Dev/config files
+.eslintrc.js
+.github/
+.gitattributes
+.editorconfig
+
+# Misc
+.DS_Store
+*.log
+
+# Repo assets (referenced from README via GitHub URLs)
+*.gif
+*.png
+
+# TS config (not needed by consumers)
+tsconfig.json
+
+# Previously packed tarballs
+*.tgz

@@ -1,4 +1,31 @@
 {
-  "name": "IsMutedExample",
-  "displayName": "IsMuted Example"
+  "expo": {
+    "name": "react-native-is-muted-example",
+    "slug": "react-native-is-muted-example",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "expo.modules.ismuted.example",
+      "appleTeamId": "WJAZ762LJ6"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "predictiveBackGestureEnabled": false,
+      "package": "expo.modules.ismuted.example"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  }
 }

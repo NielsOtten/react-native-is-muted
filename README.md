@@ -5,62 +5,53 @@
 
 <p align="center"><img src="https://github.com/NielsOtten/react-native-is-muted/blob/main/isMutedExample.ios.gif?raw=true" alt="Showcase iOS" width="234" height="433">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://github.com/NielsOtten/react-native-is-muted/blob/main/isMutedExample.android.gif?raw=true" alt="Showcase Android" width="234" height="433"></p>
 
-Detect the silent switch state in iOS.
+Detect whether the device is muted (iOS silent switch / Android ringer mode).
+
+Built with the [Expo Modules API](https://docs.expo.dev/modules/overview/). Works in any Expo or bare React Native project with autolinking.
+
+## ⚠️ Breaking change in 1.0.0
+
+Version `1.0.0` rewrites the package on top of the Expo Modules API. The public JS API has changed:
+
+- The default export `IsMuted` has been **removed**.
+- Use the named export `isMuted` (lowercase) instead.
+
+```diff
+- import IsMuted from 'react-native-is-muted';
+- const muted = await IsMuted();
++ import { isMuted } from 'react-native-is-muted';
++ const muted = await isMuted();
+```
+
+The manual iOS step of adding `MuteChecker.caf` to "Copy Bundle Resources" is no longer required — the podspec bundles it automatically.
 
 ## Installation
 
-1. Install the library from `npm`
-   ```sh
-   npm install react-native-is-muted
-   ```
-2. Link native code
-   React native 0.60+ (IOS only)
+```sh
+npm install react-native-is-muted
+```
 
-   ```sh
-   cd ios && pod install # for iOS
-   ```
+Then rebuild the native app:
 
-   pre 0.60
+```sh
+npx expo prebuild   # if using a managed Expo project
+npx expo run:ios
+npx expo run:android
+```
 
-   ```sh
-   react-native link react-native-is-muted
-   ```
-
-3. (IOS only) Add MuteChecker.caf to buildpase "Copy Bundle Resources"
-   1. Open your project in XCode
-   2. Click on project name > Target > Build Phases > Copy Bundle Resources
-   3. Click on the + icon
-   4. Click on Add another...
-      <p><img src="https://github.com/NielsOtten/react-native-is-muted/blob/main/Step4.png?raw=true" alt="Red circle around 'Add another...'" height="300"></p>
-   5. Add MuteChecker.caf, located in nodemodules/react-native-is-muted/ios/
-      <p><img src="https://github.com/NielsOtten/react-native-is-muted/blob/main/Step5.png?raw=true" alt="Location of mutechecker.caf"></p>
-4. Done
+No manual native setup is required — the iOS `MuteChecker.caf` resource is bundled via the podspec and Android autolinking handles the rest.
 
 ## Usage
 
-**Promise**
+```ts
+import { isMuted } from 'react-native-is-muted';
 
-```js
-import IsMuted from 'react-native-is-muted';
-
-IsMuted()
-  .then(muted => {
-    console.log('Muted:', muted);
-  })
-  .catch(error => {
-    console.error(error);
-  });
+const muted = await isMuted();
+console.log('Muted:', muted);
 ```
 
-**Async await**
+### Notes
 
-```js
-import IsMuted from 'react-native-is-muted';
-
-try {
-  const muted = await IsMuted();
-  console.log('Muted: ', muted);
-} catch (error) {
-  console.error(error);
-}
-```
+- **iOS**: returns `true` when the hardware silent switch is on. Does not work in the iOS Simulator (the call rejects with `ERR_SIMULATOR_UNSUPPORTED`).
+- **Android**: returns `true` when the ringer mode is silent or vibrate.
+- **Web**: not supported. Browsers do not expose system mute state.
