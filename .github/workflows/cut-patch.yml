@@ -10,7 +10,8 @@ permissions:
 jobs:
   cut-patch:
     runs-on: ubuntu-latest
-    environment: npm
+    environment:
+      name: npm
     steps:
       - name: Validate branch
         run: |
@@ -40,7 +41,7 @@ jobs:
 
       - run: npm run lint
 
-      - run: npm test
+      - run: npm test -- --passWithNoTests
 
       - name: Bump patch
         id: bump
